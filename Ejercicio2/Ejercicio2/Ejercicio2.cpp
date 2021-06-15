@@ -23,10 +23,9 @@ int leerOpcion() {
 }
 
 
-bool ejecutarOpcion(int opcion) {
+bool ejecutarOpcion(int opcion, Lista* lista) {
     bool salir = false;
     string nombre, apellido, pais, correo;
-    Lista* lista = new Lista();
     Contacto *contacto;
     switch (opcion) {
     case 1:
@@ -37,8 +36,6 @@ bool ejecutarOpcion(int opcion) {
         cout << "Ingrese el correo electronico: "; cin >> correo;
         contacto = new Contacto(nombre, apellido, pais, correo);
         lista->agregarAlInicio(contacto);
-        cout << "***Mostrar contactos de la lista***\n";
-        lista->mostrarLista();
         break;
     case 2:
         cout << "***Mostrar contactos de la lista***\n";
@@ -57,12 +54,13 @@ bool ejecutarOpcion(int opcion) {
 
 int main()
 {
+    Lista* lista = new Lista();
     bool salir = false;
     do
     {
         imprimirMenu();
         int opcion = leerOpcion();
-        salir = ejecutarOpcion(opcion);
+        salir = ejecutarOpcion(opcion, lista);
 
     } while (!salir);
 
