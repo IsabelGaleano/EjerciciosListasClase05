@@ -11,6 +11,7 @@ public:
 	int getDato();
 	void setSiguiente(Nodo *siguiente);
 	Nodo* getSiguiente();
+	void eliminarTodo();
 private:
 	Nodo *siguiente;
 	int dato;
