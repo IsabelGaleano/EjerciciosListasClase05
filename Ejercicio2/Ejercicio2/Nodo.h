@@ -12,6 +12,7 @@ public:
 	Contacto* getDato();
 	void setSiguiente(Nodo* siguiente);
 	Nodo* getSiguiente();
+	void eliminarTodo();
 private:
 	Nodo* siguiente;
 	Contacto* dato;

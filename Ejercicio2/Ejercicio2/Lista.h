@@ -11,6 +11,11 @@ public:
 	Nodo* getCabeza();
 	void agregarAlInicio(Contacto* data);
 	void mostrarLista();
+	bool esVacia();
+	void buscar(string correo);
+	void eliminar();
+	void eliminarElemento(int pos);
+	int size = 0;
 private:
 	Nodo* cabeza;
 };

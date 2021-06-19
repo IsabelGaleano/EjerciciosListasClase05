@@ -11,7 +11,12 @@ void imprimirMenu() {
     cout << "\n----Menu del programa----\n";
     cout << "\n 1: Agregar un contacto a la lista \n";
     cout << "\n 2: Ver todos los contactos \n";
-    cout << "\n 3: Salir del programa \n";
+    cout << "\n 3: Verificar si la lista esta vacia \n";
+    cout << "\n 4: Buscar un contacto \n";
+    cout << "\n 5: Eliminar \n";
+    cout << "\n 6: Eliminar elemento \n";
+    cout << "\n 7: Longitud de la lista \n";
+    cout << "\n 8: Salir del programa \n";
 
 }
 
@@ -26,6 +31,7 @@ int leerOpcion() {
 bool ejecutarOpcion(int opcion, Lista* lista) {
     bool salir = false;
     string nombre, apellido, pais, correo;
+    int pos;
     Contacto *contacto;
     switch (opcion) {
     case 1:
@@ -41,7 +47,36 @@ bool ejecutarOpcion(int opcion, Lista* lista) {
         cout << "***Mostrar contactos de la lista***\n";
         lista->mostrarLista();
         break;
+
     case 3:
+        if (lista->esVacia())
+        {
+            cout << "La lista esta vacia" << endl;
+        }
+        else
+        {
+            cout << "La lista no esta vacia" << endl;
+        }
+        break;
+
+    case 4:
+        cout << "Ingrese el correo electronico del contacto: "; cin >> correo;
+        lista->buscar(correo);
+        break;
+
+    case 5:
+        lista->eliminar();
+        cout << "Lista eliminada" << endl;
+        break;
+
+    case 6:
+        cout << "Ingrese la posicion del elemento que desea eliminar: "; cin >> pos;
+        lista->eliminarElemento(pos);
+        break;
+    case 7:
+        cout << "La longitud de la lista es: " << lista->size << endl;
+        break;
+    case 8:
         salir = true;
 
     default:
