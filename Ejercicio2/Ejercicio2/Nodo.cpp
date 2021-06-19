@@ -24,3 +24,10 @@ Nodo* Nodo::getSiguiente() {
 	return siguiente;
 }
 
+void Nodo::eliminarTodo() {
+	if (siguiente)
+	{
+		siguiente->eliminarTodo();
+		delete this;
+	}
+}
